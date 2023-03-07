@@ -11,7 +11,7 @@
 Parameter     | Description
 ------------- | -----------------------------------------
 `$rule`       | Rule to use when combining conditionals
-`$clauses`    | Array of conditionals to combine
+`$clauses`    | Spread operator, list of ConditionalInterfaces
 
 #### Example
 
@@ -21,11 +21,11 @@ use FaaPz\PDO\Clause\Grouping;
 
 // ... WHERE col1 = ? AND (col2 = ? OR col3 = ?)
 $statement->where(
-    new Grouping('AND', [
+    new Grouping('AND',
         new Conditional('col1', '=', 'val1'),
-        new Grouping('OR', [
+        new Grouping('OR', 
             new Conditional('col2', '=', 'val2'),
             new Conditional('col3', '=', 'val3')
-        ])
-    ]);
+        )
+    );
 ```

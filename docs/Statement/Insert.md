@@ -88,7 +88,7 @@ $insert->into('users')
          ->values([1, 'user1', 'passwd1'])
          ->values([2, 'user2', 'passwd2']);
 
-if (($result = $delete->execute()) !== false) {
+if (($result = $insert->execute()) !== false) {
     $affectedRows = $result->rowCount();
 }
 ```
